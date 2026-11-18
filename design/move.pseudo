@@ -7,19 +7,44 @@
 # Write pseudocode, not Python code. Use clear indentation and course-appropriate
 # keywords such as INPUT, OUTPUT, IF, ELSE, WHILE, SET, or similar terms.
 
-# TODO 1: Identify the information the movement process needs.
-# Consider the player's current room and movement command.
+WHILE game is running
 
-# TODO 2: Prompt for and receive the player's movement command.
+    Display current room
 
-# TODO 3: Validate whether the requested movement is possible from the
-# current room. Show the decision clearly.
+    Prompt player:
+    "Enter your move (North, South, East, West)"
 
-# TODO 4: Describe what happens when the movement command is valid.
-# Include the room update and player output.
+    Input direction
 
-# TODO 5: Describe what happens when the movement command is invalid.
-# Include the output the player should receive.
+    IF direction is a valid exit from the current room THEN
 
-# TODO 6: Show how movement fits into repeated gameplay.
-# The final game continues accepting commands until a required ending occurs.
+        Move player to the new room
+
+        Display:
+        "You moved to [new room]"
+
+    ELSE
+
+        Display:
+        "You can't go that way."
+
+    END IF
+
+END WHILE
+IF direction == "North" AND North exit exists
+    Move to northern room
+
+ELSE IF direction == "South" AND South exit exists
+    Move to southern room
+
+ELSE IF direction == "East" AND East exit exists
+    Move to eastern room
+
+ELSE IF direction == "West" AND West exit exists
+    Move to western room
+
+ELSE
+    Display "Invalid direction."
+END IF
+
+

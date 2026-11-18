@@ -8,26 +8,68 @@
 # keywords such as INPUT, OUTPUT, IF, ELSE, SET, ADD, or similar terms.
 
 START get_item
+Prompt player:
+"Enter item name to collect item"
 
-    # TODO 1: Identify the information the get-item process needs.
-    # Consider the current room, item in that room, and player's inventory.
+Input itemChoice
 
-    # TODO 2: Prompt for and receive the player's get-item command.
+IF current room contains itemChoice THEN
 
-    # TODO 3: Validate whether the requested item is available in the current
-    # room. Show the decision clearly.
+    Add itemChoice to inventory
 
-    # TODO 4: Describe what happens when the item request is valid.
-    # Include the inventory update and player output.
+    Remove item from room
 
-    # TODO 5: Describe what happens when the item request is invalid.
-    # Include the output the player should receive.
+    Display:
+    "Item added to inventory"
 
-    # TODO 6: Show how the process returns to or continues the larger gameplay
-    # loop after the command is handled.
+ELSE
 
+    Display:
+    "That item is not in this room."
+
+END IF
+   
 END get_item
 
 
 # References
+
+Main Game Flow 
+START GAME
+
+Set current room to Command Center
+
+Create empty inventory
+
+WHILE player has not won or lost
+
+    Display current room
+    Display inventory
+
+    IF current room contains item THEN
+        Display room item
+    END IF
+
+    Ask player for command
+    (Move or Get Item)
+
+    Process command
+
+    IF player enters villain room THEN
+
+        IF inventory contains all 6 items THEN
+            Display "You defeated NEXUS! You win!"
+            End game
+
+        ELSE
+            Display "NEXUS captured you! Game Over!"
+            End game
+
+        END IF
+
+    END IF
+
+END WHILE
+
+END GAME
 
